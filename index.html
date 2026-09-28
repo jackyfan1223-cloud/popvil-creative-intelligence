@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>POPVIL 竞品视频剪辑学习库</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="logo">CI</div>
+    <div class="brand">Creative<br>Intelligence</div>
+    <nav>
+      <button class="nav active" data-tab="library">剪辑学习库</button>
+      <button class="nav" data-tab="meta">Facebook 广告资料库</button>
+      <button class="nav" data-tab="trends">趋势总结</button>
+      <button class="nav" data-tab="testing">测试清单</button>
+      <button class="nav" data-tab="about">使用说明</button>
+    </nav>
+    <div class="version">POPVIL · 中文版 v7<br><span>默认仅显示近30天</span></div>
+  </aside>
+
+  <main>
+    <header class="hero">
+      <div>
+        <div class="eyebrow">SPORTSWEAR CREATIVE INTELLIGENCE</div>
+        <h1>竞品视频剪辑学习库</h1>
+        <p>只保留<strong>值得剪辑团队学习的具体点</strong>。先看视频，再看它可能影响哪个指标，最后转成 POPVIL 可直接执行的 A/B Test。</p>
+      </div>
+      <div class="hero-note">
+        <b>这版硬规则：</b><br>
+        <strong><strong>没有可播放视频，就不进入主案例库。</strong>（以 2026-09-28 为基准，默认近30天。）每张卡必须带官方播放器；同时尽可能提供备用镜像。
+      </div>
+    </header>
+
+    <section id="library" class="tab active-tab">
+      <div class="kpis" id="kpis"></div>
+      <div class="filters panel">
+        <input id="search" placeholder="搜索品牌、Hook、剪辑点…" />
+        <select id="brandFilter"><option value="">全部品牌</option></select>
+        <select id="metricFilter">
+          <option value="">全部目标指标</option>
+          <option>CTR</option><option>3秒留存</option><option>完播率</option><option>互动率</option><option>CVR</option><option>产品理解</option>
+        </select>
+        <select id="tagFilter"><option value="">全部结构</option></select>
+        <select id="freshnessFilter"><option value="30" selected>近30天（默认）</option><option value="14">近14天</option><option value="7">近7天</option></select>
+        <select id="sortFilter"><option value="default">推荐顺序</option><option value="newest">发布时间最新</option><option value="views">公开播放量</option></select>
+      </div>
+      <div class="freshness-note panel"><b>时间规则：</b> 主库默认只展示 2026-08-29～2026-09-28 发布的素材。无法确认发布时间、或超过30天且无持续投放证据的案例，不进入主库。</div>
+      <div class="today-update panel"><b>2026-09-28 今日更新：</b> 扫描 9 个重点品牌后，新增 1 条同时满足“近7天 + 可播放 + 有明确学习价值”的案例：Halara Creator 用“舒服但仍然要好看”建立双价值标准。其余候选若无法稳定播放或剪辑价值不足，本轮不凑数。</div>
+      <div class="availability panel">
+        <span><i class="dot green"></i> 主案例库：100% 带播放器</span>
+        <span><i class="dot amber"></i> 官方播放器受限时可切备用镜像</span>
+        <span><i class="dot purple"></i> Meta Ads Library 仅用于继续找新素材</span>
+      </div>
+      <div id="cards" class="cards"></div>
+    </section>
+
+    <section id="meta" class="tab">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">META SOURCE POOL</div>
+          <h2>Facebook / Instagram 广告资料库入口</h2>
+          <p>这里不是普通品牌链接，而是预设成 <b>美国 + Active Ads + Video</b> 的 Meta Ads Library 搜索入口。适合每天找近期正在投放的视频素材。</p>
+        </div>
+      </div>
+      <div class="meta-guide panel">
+        <b>推荐筛选方法：</b> 打开品牌 → 只看 Video → 优先看持续在线、多版本复投、UGC/真人试穿、Hook 明显变化的视频。找到值得学的素材后，再回到“剪辑学习库”记录具体可复制点。
+      </div>
+      <div id="metaGrid" class="meta-grid"></div>
+    </section>
+
+    <section id="trends" class="tab">
+      <div class="section-head"><div><h2>当前最值得测试的剪辑趋势</h2><p>仅基于近30天案例与近期公开投放信号整理，只保留能转成剪辑动作的趋势。</p></div></div>
+      <div id="trendGrid" class="trend-grid"></div>
+    </section>
+
+    <section id="testing" class="tab">
+      <div class="section-head"><div><h2>剪辑团队 A/B 测试清单</h2><p>每次只改一个变量，避免看不出究竟是什么起作用。</p></div></div>
+      <div class="panel table-wrap">
+        <table>
+          <thead><tr><th>测试</th><th>A 版</th><th>B 版</th><th>首看指标</th><th>判断逻辑</th></tr></thead>
+          <tbody>
+            <tr><td>评论 CTA</td><td>Shop Now</td><td>Comment “SHOP” for link</td><td>CTR / 评论率</td><td>B 版 CTR 与评论同步上升才值得扩大</td></tr>
+            <tr><td>测试型 Hook</td><td>Side Pockets</td><td>Will these pockets pass the phone test?</td><td>3秒留存 / CTR</td><td>先看留存，再看点击是否同步</td></tr>
+            <tr><td>第一镜</td><td>站桩正面</td><td>转身 / 深蹲 / 裙摆动作</td><td>3秒留存</td><td>只判断视觉停留，不先看 ROAS</td></tr>
+            <tr><td>场景标题</td><td>Buttery Soft Set</td><td>My 6AM Airport Outfit</td><td>CTR / 6秒留存</td><td>验证“用途”是否比“属性”更能驱动点击</td></tr>
+            <tr><td>促销 Hook</td><td>B2G1 FREE</td><td>B2G1 FREE… and that’s not even the best part.</td><td>3秒留存 / CTR</td><td>看悬念是否降低纯折扣疲劳</td></tr>
+            <tr><td>人群 Hook</td><td>New Leggings</td><td>Regular leggings are always too short on me</td><td>3秒留存 / CTR</td><td>目标人群识别是否更快</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="about" class="tab">
+      <div class="section-head"><div><h2>使用说明</h2></div></div>
+      <div class="panel about">
+        <h3>为什么主库现在只看近30天？</h3>
+        <p>超过30天的内容默认不进入主库，避免一年以前的爆款逻辑干扰当前剪辑判断。若某条旧广告仍在 Meta Ads Library 明确持续投放，后续才会作为“持续投放例外”重新纳入。</p>
+        <h3>现在的主库为什么不会再出现“空视频卡片”？</h3>
+        <p>程序会自动过滤掉没有 Instagram shortcode 或 TikTok video ID 的案例。也就是说：只有能在卡片左侧嵌入播放器的视频，才有资格进入主库。每张卡还提供备用镜像切换。</p>
+        <h3>为什么 Meta Ads Library 不能直接嵌入本地网页？</h3>
+        <p>Meta 广告资料库有登录、跨域和内容安全策略限制，静态本地 HTML 不能稳定把广告播放器嵌进 iframe。因此这里使用官方 Ads Library 直达入口，而不是做一个看似能播但经常空白的播放器。</p>
+        <h3>“可能提升 CTR / 3秒留存”是什么意思？</h3>
+        <p>这是剪辑策略假设，不是竞品公开后台结论。真正是否有效，要用你自己的 Meta / TikTok 数据做 A/B Test 验证。</p>
+      </div>
+    </section>
+  </main>
+
+  <template id="cardTemplate">
+    <article class="case-card">
+      <div class="video-col">
+        <div class="video-frame"></div>
+        <div class="video-status"></div>
+        <div class="player-switch"></div>
+        <div class="video-actions">
+          <a class="origin-btn primary" target="_blank" rel="noopener">▶ 打开原视频</a>
+          <a class="evidence-btn" target="_blank" rel="noopener">数据佐证 ↗</a>
+          <a class="meta-btn" target="_blank" rel="noopener">Meta 同品牌视频 ↗</a>
+        </div>
+      </div>
+      <div class="analysis-col">
+        <div class="topline"><div class="identity"></div><div class="views"></div></div>
+        <h2 class="case-title"></h2>
+        <div class="hookbox"><span>原 Hook</span><strong class="hook"></strong></div>
+        <div class="metric-row"></div>
+        <div class="blocks">
+          <div><h4>值得学什么</h4><p class="learn"></p></div>
+          <div><h4>剪辑怎么做</h4><p class="editing"></p></div>
+          <div><h4>为什么可能影响指标</h4><p class="why"></p></div>
+        </div>
+        <div class="adapt"><h4>POPVIL 可直接复刻</h4><ul></ul></div>
+        <div class="testline"><b>A/B 验证：</b><span></span></div>
+        <div class="source-note"></div>
+      </div>
+    </article>
+  </template>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
